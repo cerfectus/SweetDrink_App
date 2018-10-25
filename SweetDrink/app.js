@@ -44,15 +44,20 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-
+// Registro de partials
+hbs.registerPartials(`${__dirname}/views/partials`);
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
-
+app.locals.title = 'SweetDrinks';
 
 
 const index = require('./routes/index');
 app.use('/', index);
 
+const auth = require('./routes/auth');
+app.use('/auth', auth);
+
+const info = require('./routes/info');
+app.use('/info', info);
 
 module.exports = app;
