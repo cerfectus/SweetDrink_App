@@ -54,7 +54,29 @@ router.post("/register", (req, res) => {
     res.render("register", {msg: "NO completaste ningun campo"});
     return;
   }
-    const salt = bcrypt.genSaltSync(bcryptSalt);
+  const salt = bcrypt.genSaltSync(bcryptSalt);
+  let hashUsername = bcrypt.hashSync(name, salt);
+    hashUsername = hashUsername.replace(/\//g, '');
+    hashUsername = hashUsername.replace(/\//g, '');
+    const confirmationCode = encodeURIComponent(hashUsername);
+
+    User.register({name, email, phone, date, confirmationCode: confirmationCode}, password)
+    .then(user => {
+      mailer.sendMail(user.email, hashUsername, user.name) 
+      client.messages.create({
+        to: '+'+ user.phone,
+        from: process.env.TWILIO_NUMBER,
+        body: 'Gracias por registrarte en SweetDrinks ingresa a tu cuenta en: http://localhost:3000/auth/login'
+      })
+      res.redirect("/auth/login");
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).render("register",{err, msg:"No pudimos registrarte"})
+    })
+  });
+
+    /*const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
     let hashUsername = bcrypt.hashSync(name, salt);
     hashUsername = hashUsername.replace(/\//g, '');
@@ -84,7 +106,7 @@ router.post("/register", (req, res) => {
       console.log(err)
       res.status(500).render("register",{err, msg:"No pudimos registrarte"})
     })
-  });
+  });*/
 
 router.get("/confirm/:confirmCode", (req, res) => {
   const code = encodeURIComponent(req.params.confirmCode);
