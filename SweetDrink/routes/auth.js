@@ -1,36 +1,106 @@
 const express = require('express');
 const router  = express.Router();
+const passport = require("passport");
+const User = require("../models/User");
+const mailer = require("../helpers/mailer");
+const twilio = require('twilio');
+const client = new twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+
+// Bcrypt to encrypt passwords
+const bcrypt = require("bcrypt");
+const bcryptSalt = 10;
+
+router.get('/login', (req, res) => {
+  res.render("login");
+});
+
+router.post("/login", passport.authenticate("local", {
+  successRedirect: "/profile",
+  failureRedirect: "/auth/login"
+}));
 
 router.get('/signup', (req, res) => {
   res.render("register");
 });
 
 router.post("/register", (req, res) => {
-  if(req.body.password !== req.body["password-confirm"]) return res.render("register", {msg: "Tus contras no machean"});
-  const {username, email, password, phone} = req.body;
-  User.register({username, email, phone}, password)
-      .then(user => {
-          const options = {
-              email: user.email,
-              subject: "Confirma tu correo",
-              message: "O confirmas o cuello"
-          };
-          mail.send(options);
-          client.messages.create({
-            to: '+'+ user.phone,
-            from: process.env.TWILIO_NUMBER,
-            body: 'Gracias por registrarte en AtomicBeers ingresa a tu cuenta en: http://localhost:3000/auth/login'
-          })
-          console.log("")
-          res.redirect("/auth/login")
-      })
-      .catch(err => {
-          res.status(500).render("register",{err, msg:"No pudimos registrarte"})
-      })
-});
+  const {name, email, phone, date, password} = req.body;
 
-router.get('/login', (req, res) => {
-  res.render("login");
+  if(req.body.name === ""){
+    res.render("register", {msg: "Ingresa tu nombre"});
+    return;
+  }
+  else if(req.body.email === ""){
+    res.render("register", {msg: "Ingresa tu email"});
+    return;
+  }
+  else if(req.body.phone === ""){
+    res.render("register", {msg: "Ingresa tu teléfono"});
+    return;
+  }
+  else if(req.body.date === ""){
+    res.render("register", {msg: "Ingresa tu fecha de nacimiento"});
+    return;
+  }
+  else if(req.body.password === ""){
+    res.render("register", {msg: "Ingresa tu teléfono"});
+    return;
+  }
+  else if(req.body.password !== req.body["password-confirm"]){
+    res.render("register", {msg: "Las contraseñas no coinciden"});
+    return;
+  }
+  else if(req.body.name === "" && req.body.email === "" && req.body.phone === "" && req.body.date === "" && req.body.password === "" && req.body["password-confirm"] === ""){
+    res.render("register", {msg: "NO completaste ningun campo"});
+    return;
+  }
+    const salt = bcrypt.genSaltSync(bcryptSalt);
+    const hashPass = bcrypt.hashSync(password, salt);
+    let hashUsername = bcrypt.hashSync(name, salt);
+    hashUsername = hashUsername.replace(/\//g, '');
+    hashUsername = hashUsername.replace(/\//g, '');
+    const confirmationCode = encodeURIComponent(hashUsername);
+
+    const newUser = new User({
+      name,
+      email,
+      phone,
+      date,
+      password: hashPass,
+      confirmationCode: confirmationCode
+    });
+
+    newUser.save()
+    .then(() => {
+      mailer.sendMail(email,hashUsername, name)
+      client.messages.create({
+        to: '+'+ newUser.phone,
+        from: process.env.TWILIO_NUMBER,
+        body: 'Gracias por registrarte en SweetDrinks ingresa a tu cuenta en: http://localhost:3000/auth/login'
+      })
+      res.redirect("/auth/login");
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).render("register",{err, msg:"No pudimos registrarte"})
+    })
+  });
+
+router.get("/confirm/:confirmCode", (req, res) => {
+  const code = encodeURIComponent(req.params.confirmCode);
+  User.find({confirmationCode: code})
+  .then((user) =>{
+    User.findByIdAndUpdate(user[0]._id, {status: "Active"})
+    .then((user) =>{
+      res.render("confirm", {user});
+    })
+  })
+  .catch((e) => console.log(e))
+ });
+
+router.post("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/login");
 });
 
 module.exports = router;

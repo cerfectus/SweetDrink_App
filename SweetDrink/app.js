@@ -8,10 +8,13 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const passport     = require("./helpers/passport");
+const session      = require("express-session");
+
 
 
 mongoose
-  .connect('mongodb://localhost/sweetdrink', {useNewUrlParser: true})
+  .connect(process.env.DB, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -23,6 +26,16 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+
+app.use(session({
+  secret: process.env.SECRET,
+  resave: true,
+  saveUninitialized: true
+}));
+
+// Iniciar midlewares passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -56,6 +69,9 @@ app.use('/', index);
 
 const auth = require('./routes/auth');
 app.use('/auth', auth);
+
+const profile = require('./routes/profile');
+app.use('/profile', profile);
 
 const info = require('./routes/info');
 app.use('/info', info);

@@ -12,6 +12,7 @@ body {
   top: 0;
   width: 100%;
   transition: top 0.3s;
+  z-index: 1;
 }
 #navbar em{
   color: #ffff;
@@ -31,7 +32,7 @@ body {
   background-color: #333;
   color: white;
   padding: 16px;
-  font-size: 16px;
+  font-size: 18px;
   border: none;
   cursor: pointer;
   width: 100px;
@@ -81,7 +82,7 @@ body {
   pointer-events: none;
   position: absolute;
   top: 41%;
-  left: 65%;
+  left: 69%;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
   -webkit-transform-origin: center;

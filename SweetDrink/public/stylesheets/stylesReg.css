@@ -1,5 +1,15 @@
+*{
+  padding: 0%;
+  margin: 0%;
+}
 #form-registro{
   float: right;
-  margin: 10% 22% 0 0;
-  border: 2px #333;
+  margin: 10% 20% 0 0;
+}
+.reg{
+  color: black;
+}
+.logo{
+  width: 50%;
+  height: auto;
 }
