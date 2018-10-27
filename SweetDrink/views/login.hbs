@@ -1,10 +1,20 @@
 <main>
-    <div id="form-registro">
+    <img class="logo" src="/images/IMG_2795.PNG" alt="Logo">
+    <div id="form-login">
         <div class="reg">
             <h1>Iniciar sesión</h1>
         </div>
 
-        <form action="/auth/login" method="POST">
+        {{#if msg }}
+
+            <div class="uk-alert-danger" uk-alert>
+                <a class="uk-alert-close" uk-close></a>
+                <p>{{ msg }}</p>
+            </div>
+
+            {{/if}}
+            
+        <form class="login" action="/auth/login" method="POST">
 
 
             <div class="uk-margin">
