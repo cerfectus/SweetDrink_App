@@ -76,53 +76,21 @@ router.post("/register", (req, res) => {
     })
   });
 
-    /*const salt = bcrypt.genSaltSync(bcryptSalt);
-    const hashPass = bcrypt.hashSync(password, salt);
-    let hashUsername = bcrypt.hashSync(name, salt);
-    hashUsername = hashUsername.replace(/\//g, '');
-    hashUsername = hashUsername.replace(/\//g, '');
-    const confirmationCode = encodeURIComponent(hashUsername);
-
-    const newUser = new User({
-      name,
-      email,
-      phone,
-      date,
-      password: hashPass,
-      confirmationCode: confirmationCode
-    });
-
-    newUser.save()
-    .then(() => {
-      mailer.sendMail(email,hashUsername, name)
-      client.messages.create({
-        to: '+'+ newUser.phone,
-        from: process.env.TWILIO_NUMBER,
-        body: 'Gracias por registrarte en SweetDrinks ingresa a tu cuenta en: http://localhost:3000/auth/login'
-      })
-      res.redirect("/auth/login");
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).render("register",{err, msg:"No pudimos registrarte"})
-    })
-  });*/
-
 router.get("/confirm/:confirmCode", (req, res) => {
   const code = encodeURIComponent(req.params.confirmCode);
   User.find({confirmationCode: code})
   .then((user) =>{
     User.findByIdAndUpdate(user[0]._id, {status: "Active"})
-    .then((user) =>{
+    .then(user=>{
       res.render("confirm", {user});
     })
   })
-  .catch((e) => console.log(e))
+  .catch(err=> console.log(err))
  });
 
 router.post("/logout", (req, res) => {
   req.logout();
-  res.redirect("/login");
+  res.redirect("/auth/login");
 });
 
 module.exports = router;
