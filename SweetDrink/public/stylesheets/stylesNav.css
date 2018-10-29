@@ -15,16 +15,12 @@ body {
   z-index: 1;
 }
 #navbar em{
-  color: #ffff;
-  font-size: 22px;
-  font-family: 'Luckiest Guy', cursive;
-  margin: 13px 0 0 6px;
-}
-#navbar #s{
-  color: red;
+  color: lightblue;
+  font-size: 25px;
+  font-family: 'Lobster', cursive;
+  margin: 11px 0 0 6px;
 }
 #navbar #d{
-  color: blue;
   padding: 0%;
   margin: 0%;
 }

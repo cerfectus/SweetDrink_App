@@ -2,9 +2,14 @@
   margin: 4% 0 0 5%;
   width: 40%;
   height: 900px;
+  color: white;
 }
 .qs{
   padding-top: 16%;
+  color: white;
+}
+.qs1{
+  color: white;
 }
 .cards{
   display: flex;

@@ -7,7 +7,7 @@
   margin: 10% 20% 0 0;
 }
 .reg{
-  color: black;
+  color: white;
 }
 .logo{
   width: 50%;
@@ -16,4 +16,7 @@
 #form-login{
   float: right;
   margin: 16% 20% 0 0;
+}
+#main{
+  background-color: #0b1521;
 }

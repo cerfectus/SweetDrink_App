@@ -54,6 +54,16 @@ router.post("/register", (req, res) => {
     res.render("register", {msg: "NO completaste ningun campo"});
     return;
   }
+  User.findOne({ email }, "email", (err, user) => {
+    if (user !== null) {
+      res.render("register", { msg: "El correo ya esta registrado" });
+      return;
+    }
+    User.findOne({ phone }, "phone", (err, user) => {
+      if (user !== null) {
+        res.render("register", { msg: "El telefóno ya esta registrado" });
+        return;
+      }
   const salt = bcrypt.genSaltSync(bcryptSalt);
   let hashUsername = bcrypt.hashSync(name, salt);
     hashUsername = hashUsername.replace(/\//g, '');
@@ -66,15 +76,17 @@ router.post("/register", (req, res) => {
       client.messages.create({
         to: '+'+ user.phone,
         from: process.env.TWILIO_NUMBER,
-        body: 'Gracias por registrarte en SweetDrinks ingresa a tu cuenta en: http://localhost:3000/auth/login'
-      })
+        body: 'Gracias por registrarte en SweetDrinks en breve recibirás un correo para confirmar tu cuenta.'
+      });
       res.redirect("/auth/login");
     })
     .catch(err => {
       console.log(err)
       res.status(500).render("register",{err, msg:"No pudimos registrarte"})
-    })
+    });
   });
+});
+});
 
 router.get("/confirm/:confirmCode", (req, res) => {
   const code = encodeURIComponent(req.params.confirmCode);
@@ -83,7 +95,7 @@ router.get("/confirm/:confirmCode", (req, res) => {
     User.findByIdAndUpdate(user[0]._id, {status: "Active"})
     .then(user=>{
       res.render("confirm", {user});
-    })
+    });
   })
   .catch(err=> console.log(err))
  });
