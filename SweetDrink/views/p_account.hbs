@@ -18,12 +18,15 @@
         </div>
     </div>
     </div>
+    <div  class=" mapa uk-card uk-card-default uk-card-body uk-width-1-2@m">
+    <h3 class="uk-card-title"><i class="fas fa-map-marker-alt"></i> Ubicación: </h3>
     <div id="map"></div>
+</div>
 </main>
  <script>
      window.onload = function () {
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 17,
+      zoom: 18,
       center: {
         lat: 41.3977381,
         lng: 2.190471916
@@ -58,30 +61,6 @@
         // Center map with user location
         map.setCenter(user_location);
         marker.setPosition(user_location);
-
-        /*const directionsService = new google.maps.DirectionsService;
-        const directionsDisplay = new google.maps.DirectionsRenderer;
-
-        const directionRequest = {
-          origin: user_location,
-          destination:{
-          lat: 19.4270245,
-          lng: -99.16766469999999
-        },
-          travelMode: "DRIVING"
-      };
-
-      directionsService.route(
-        directionRequest,
-        function (response, status) {
-          if (status === 'OK') {
-            // everything is ok
-            directionsDisplay.setDirections(response);
-
-          } 
-        });
-
-      directionsDisplay.setMap(map);*/
 
       // Create an object to match
       // google's Lat-Lng object format

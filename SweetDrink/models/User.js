@@ -23,8 +23,8 @@ const userSchema = new Schema({
       type:String,
       unique: true
     },
-    status: {type: String, enum: ["Pending Confirmation", "Active"],
-    default: "Pending Confirmation"
+    status: {type: String, enum: ["Confirmación pendiente", "Activo"],
+    default: "Confirmación pendiente"
   },
     profile_pic: String,
   },
