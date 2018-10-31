@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const menuSchema = new Schema ({
+  category: String,
   image: String,
   name : String,
   cantidad: String,

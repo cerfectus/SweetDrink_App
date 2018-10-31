@@ -1,3 +1,6 @@
-.carta{
-margin-top: 10px;
+#cuadro{
+  margin-top: 100px;
+}
+.nav-bar{
+  display:flex;
 }
