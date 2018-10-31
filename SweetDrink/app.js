@@ -76,4 +76,7 @@ app.use('/profile', profile);
 const info = require('./routes/info');
 app.use('/info', info);
 
+const menu = require("./routes/menu")
+app.use("/menu", menu)
+
 module.exports = app;
