@@ -1,9 +1,17 @@
 const express = require('express');
 const router  = express.Router();
 const commonMiddlewares = require("../helpers/commonMiddlewares");
+const passport = require("passport");
 const User = require("../models/User");
+const mailer = require("../helpers/mailer");
+const twilio = require('twilio');
+const client = new twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
-router.get("/", commonMiddlewares.isLoggedIn, (req, res) => {
+// Bcrypt to encrypt passwords
+const bcrypt = require("bcrypt");
+const bcryptSalt = 10;
+
+router.get("/account", commonMiddlewares.isLoggedIn, (req, res) => {
   const {user} = req;
   User.find()
   .then(()=>{
@@ -11,8 +19,22 @@ router.get("/", commonMiddlewares.isLoggedIn, (req, res) => {
   })
 });
 
-router.get("/edit",commonMiddlewares.isLoggedIn, (req,res)=>{
-  res.render("e_account");
+router.get("/account/:id/edit",commonMiddlewares.isLoggedIn, (req,res)=>{
+  let {user} = req;
+  User.findById(req.params._id)
+  .then(()=>{
+    res.render("e_account", {user});
+  })
+});
+
+router.post("/account/:id/edit",commonMiddlewares.isLoggedIn, (req,res)=>{
+  User.findByIdAndUpdate(req.params.id, { $set: req.body }, {new: true})
+  .then( () =>{
+    res.redirect("/profile/account");
+  })
+  .catch(err=>{
+    res.render("e_account", {err, msg: "Ocurrió un error al actualizar"});
+  })
 });
 
 module.exports = router;

@@ -19,7 +19,7 @@ transport.verify(function(error, success) {
 
 exports.sendMail=(email, code, newUser)=>{
   transport.sendMail({
-    from: "Sweet@Drinks.com",
+    from: "SweetDrinks",
     to: email,
     subject: "Confirma tu correo",
     html:`<h1>Hola ${newUser} gracias por registrate en SweetDrinks</h1><a href="http://localhost:3000/auth/confirm/${code}">Confirma tu cuenta</a>`
