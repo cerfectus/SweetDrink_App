@@ -1,63 +1,68 @@
 <main id="main">
 
-        <div id="form-registro">
+  <div id="form-registro">
 
-            <h1 class="reg">Actualiza tu perfil</h1>
+    <h1 class="reg">Actualiza tu perfil</h1>
 
-            {{#if msg }}
+    {{#if msg }}
 
-            <div class="uk-alert-danger" uk-alert>
-                <a class="uk-alert-close" uk-close></a>
-                <p>{{ msg }}</p>
-            </div>
+    <div class="uk-alert-danger" uk-alert>
+      <a class="uk-alert-close" uk-close></a>
+      <p>{{ msg }}</p>
+    </div>
 
-            {{/if}}
+    {{/if}}
 
-            <form class="form" action="/profile/account/{{user._id}}/edit" method="POST">
+    <form class="form" action="/profile/account/{{user._id}}/edit" method="POST" enctype="multipart/form-data">
 
-                <div class="uk-margin">
-                    <div class="uk-inline">
-                        <span class="uk-form-icon" uk-icon="icon: user"></span>
-                        <input class="uk-input" type="text" name="name" placeholder="Nombre completo" value="{{user.name}}">
-                    </div>
-                </div>
-                <div class="uk-margin">
-                    <div class="uk-inline">
-                        <span class="uk-form-icon" uk-icon="icon:  mail"></span>
-                        <input class="uk-input" type="email" name="email" placeholder="Correo electrónico" value="{{user.email}}">
-                    </div>
-                </div>
-                <div class="uk-margin">
-                    <div class="uk-inline">
-                        <span class="uk-form-icon" uk-icon="icon:  phone"></span>
-                        <input class="uk-input" type="tel" name="phone" placeholder="Número + lada" value="{{user.phone}}">
-                    </div>
-                </div>
-                <div class="uk-margin">
-                    <div class="uk-inline">
-                        <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                        <input class="uk-input" type="password" name="password" placeholder="Contraseña">
-                    </div>
-                </div>
-                <div class="uk-margin">
-                    <div class="uk-inline">
-                        <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                        <input class="uk-input" type="password" name="password-confirm" placeholder="Reingresa tu contraseña">
-                    </div>
-                </div>
-
-                <p class="uk-margin">
-                    <button type="submit" class="uk-button uk-button-primary"><i class="fas fa-user"></i> Actualizar perfil</button>
-                </p>
-
-                <form action="/profile/account" method="GET">
-                <p class="uk-margin">
-                    <button type="submit" class="uk-button uk-button-secondary"><i class="fas fa-angle-left"></i> Regresar</button>
-
-                </p>
-                </form>
-
-            </form>
-
+      <div class="js-upload" uk-form-custom>
+        <input type="file" name="photos">
+        <span class="uk-form-icon" uk-icon="icon: image"></span>
+        <button class="uk-button uk-button-default" type="button" tabindex="-1">&nbsp;&nbsp;&nbsp;Selecciona un foto</button>
+      </div>
+      <div class="uk-margin">
+        <div class="uk-inline">
+          <span class="uk-form-icon" uk-icon="icon: user"></span>
+          <input class="uk-input" type="text" name="name" placeholder="Nombre completo" value="{{user.name}}">
         </div>
+      </div>
+      <div class="uk-margin">
+        <div class="uk-inline">
+          <span class="uk-form-icon" uk-icon="icon:  mail"></span>
+          <input class="uk-input" type="email" name="email" placeholder="Correo electrónico" value="{{user.email}}">
+        </div>
+      </div>
+      <div class="uk-margin">
+        <div class="uk-inline">
+          <span class="uk-form-icon" uk-icon="icon:  phone"></span>
+          <input class="uk-input" type="tel" name="phone" placeholder="Número + lada" value="{{user.phone}}">
+        </div>
+      </div>
+      <div class="uk-margin">
+        <div class="uk-inline">
+          <span class="uk-form-icon" uk-icon="icon: lock"></span>
+          <input class="uk-input" type="password" name="password" placeholder="Contraseña">
+        </div>
+      </div>
+      <div class="uk-margin">
+        <div class="uk-inline">
+          <span class="uk-form-icon" uk-icon="icon: lock"></span>
+          <input class="uk-input" type="password" name="password-confirm" placeholder="Reingresa tu contraseña">
+        </div>
+      </div>
+
+      <p class="uk-margin">
+        <button type="submit" class="uk-button uk-button-primary"><i class="fas fa-user"></i> Actualizar perfil</button>
+      </p>
+
+      <form action="/profile/account" method="GET">
+        <p class="uk-margin">
+          <button type="submit" class="uk-button uk-button-secondary"><i class="fas fa-angle-left"></i> Regresar</button>
+
+        </p>
+      </form>
+
+    </form>
+
+  </div>
 </main>

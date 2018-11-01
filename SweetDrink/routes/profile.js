@@ -4,6 +4,7 @@ const commonMiddlewares = require("../helpers/commonMiddlewares");
 const passport = require("passport");
 const User = require("../models/User");
 const mailer = require("../helpers/mailer");
+const upload = require("../helpers/multer");
 const twilio = require('twilio');
 const client = new twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 

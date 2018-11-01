@@ -26,8 +26,9 @@ const userSchema = new Schema({
     status: {type: String, enum: ["Confirmación pendiente", "Activo"],
     default: "Confirmación pendiente"
   },
-    profile_pic: String,
-  },
+    photo: {type: String, 
+    default: "http://warp.la/wp-content/uploads/2016/03/Fiesta.jpg"
+  }},
   {
     timestamps: {
         createdAt: "created_at",
