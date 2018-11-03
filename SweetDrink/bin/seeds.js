@@ -120,7 +120,45 @@ const tequila = [
   }
 ];
 
-Producto.create(cervezas, (err) => {
+const brandy = [
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/80.jpg",
+    name : "Terry Centenario ",
+    type: "Brandy",
+    Qty: "700",
+    price: 365.00
+  },
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/81.jpg",
+    name : "Torres 10",
+    type: "Brandy",
+    Qty: "700",
+    price: 340.00
+  },
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/593.jpg",
+    name : "Torres 5",
+    type: "Brandy",
+    Qty: "700",
+    price: 250.00
+  },
+  {
+    image: "https://bodegasalianza.vteximg.com.br/arquivos/ids/164143-800-800/30022-1.jpg?v=636588733158930000",
+    name : "Torres spiced",
+    type: "Brandy",
+    Qty: "990",
+    price: 200.00
+  },
+  {
+    image: "https://bodegasalianza.vteximg.com.br/arquivos/ids/159778-1000-1000/0063-1.jpg?v=636347883107370000",
+    name : "Azteca de oro",
+    type: "Brandy",
+    Qty: "700",
+    price: 145.00
+  }
+];
+
+/*Producto.create(cervezas, (err) => {
   if (err) throw(err)
   console.log(`Created ${cervezas.length} cervezas`)
   // cerrar conexion a la BD
@@ -137,4 +175,10 @@ Producto.create(tequila, (err) => {
   console.log(`Created ${tequila.length} tequilas`)
   // cerrar conexion a la BD
   mongoose.connection.close()
-});
+});*/
+Producto.create(brandy, (err) => {
+  if (err) throw(err)
+  console.log(`Created ${brandy.length} Brandys`)
+  // cerrar conexion a la BD
+  mongoose.connection.close()
+})
