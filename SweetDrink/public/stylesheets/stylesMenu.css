@@ -1,0 +1,19 @@
+#items{
+  margin-top: 4%;
+  margin-bottom: 5%;
+  text-align: center;
+}
+.carrito{
+  font-size: 11px;
+  padding: 5px 15px;
+}
+.pos1{
+  text-align: center;
+}
+.apartado{
+  padding: 5% 0 0 0; 
+  font-family: 'Righteous', cursive;
+}
+.container{
+  padding-bottom: 3%;
+}

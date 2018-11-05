@@ -1,82 +1,126 @@
-<div>
-  <div>
-    <h1>Cervezas</h1>
-    <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
-      {{#each cerveza}}
-      {{> productos this}}
-      {{/each}}
+<main>
+  <header>
+  </header>
+  <div id="items">
+    <div class="container" uk-parallax="background-color:  white,#0b1521;">
+      <h1 class="apartado">Cervezas</h1>
+      <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
+        {{#each cerveza}}
+        {{> productos this}}
+        {{/each}}
+      </div>
+    </div>
+    <div class="container" uk-parallax="background-color:  white,#0b1521;">
+      <h1 class="apartado">Vinos de mesa</h1>
+      <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
+        {{#each vino}}
+        {{> productos this}}
+        {{/each}}
+      </div>
+    </div>
+    <div class="container" uk-parallax="background-color:  white,#0b1521;">
+      <h1 class="apartado">Tequilas</h1>
+      <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
+        {{#each tequila}}
+        {{> productos this}}
+        {{/each}}
+      </div>
+    </div>
+    <div class="container" uk-parallax="background-color:  white,#0b1521;">
+      <h1 class="apartado">Brandys</h1>
+      <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
+        {{#each brandy}}
+        {{> productos this}}
+        {{/each}}
+      </div>
+    </div>
+    <div class="container" uk-parallax="background-color:  white,#0b1521;">
+      <h1 class="apartado">Rones</h1>
+      <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
+        {{#each ron}}
+        {{> productos this}}
+        {{/each}}
+      </div>
+    </div>
+    <div class="container" uk-parallax="background-color:  white,#0b1521;">
+      <h1 class="apartado">Vodkas</h1>
+      <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
+        {{#each vodka}}
+        {{> productos this}}
+        {{/each}}
+      </div>
+    </div>
+    <div class="container" uk-parallax="background-color:  white,#0b1521;">
+      <h1 class="apartado">Whiskeys</h1>
+      <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
+        {{#each whiskey}}
+        {{> productos this}}
+        {{/each}}
+      </div>
+    </div>
+    <div class="container" uk-parallax="background-color:  white,#0b1521;">
+      <h1 class="apartado">Ginebras</h1>
+      <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
+        {{#each ginebra}}
+        {{> productos this}}
+        {{/each}}
+      </div>
+    </div>
+    <div class="container" uk-parallax="background-color:  white,#0b1521;">
+      <h1 class="apartado">Mezcladores</h1>
+      <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
+        {{#each mezclador}}
+        {{> productos this}}
+        {{/each}}
+      </div>
+    </div>
+    <div class="container" uk-parallax="background-color:  white,#0b1521;">
+      <h1 class="apartado">Jugos</h1>
+      <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
+        {{#each jugos}}
+        {{> productos this}}
+        {{/each}}
+      </div>
+    </div>
+      <div class="container" uk-parallax="background-color:  white,#0b1521;">
+      <h1 class="apartado">Botanas</h1>
+      <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
+        {{#each botana}}
+        {{> productos this}}
+        {{/each}}
+      </div>
+    </div>
+      <div class="container" uk-parallax="background-color:  white,#0b1521;">
+      <h1 class="apartado">Cigarros</h1>
+      <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
+        {{#each cigarros}}
+        {{> productos this}}
+        {{/each}}
+      </div>
+    </div>
+      <div class="container" uk-parallax="background-color:  white,#0b1521;">
+      <h1 class="apartado">Farmacia</h1>
+      <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
+        {{#each farmacia}}
+        {{> productos this}}
+        {{/each}}
+      </div>
+    </div>
+      <div class="container" uk-parallax="background-color:  white,#0b1521;">
+      <h1 class="apartado">Juegos y más</h1>
+      <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
+        {{#each juegos}}
+        {{> productos this}}
+        {{/each}}
+      </div>
+    </div>
+      <div class="container" uk-parallax="background-color:  white,#0b1521;">
+      <h1 class="apartado">Servicios</h1>
+      <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
+        {{#each servicios}}
+        {{> productos this}}
+        {{/each}}
+      </div>
     </div>
   </div>
-  <div>
-    <h1>Vinos de mesa</h1>
-    <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
-      {{#each vino}}
-      {{> productos this}}
-      {{/each}}
-    </div>
-  </div>
-  <div>
-    <h1>Tequilas</h1>
-    <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
-      {{#each tequila}}
-      {{> productos this}}
-      {{/each}}
-    </div>
-  </div>
-  <div>
-    <h1>Brandys</h1>
-    <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
-      {{#each brandy}}
-      {{> productos this}}
-      {{/each}}
-    </div>
-  </div>
-    <div>
-    <h1>Rones</h1>
-    <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
-      {{#each ron}}
-      {{> productos this}}
-      {{/each}}
-    </div>
-  </div>
-    <div>
-    <h1>Vodkas</h1>
-    <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
-      {{#each vodka}}
-      {{> productos this}}
-      {{/each}}
-    </div>
-  </div>
-   <div>
-    <h1>Whiskeys</h1>
-    <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
-      {{#each whiskey}}
-      {{> productos this}}
-      {{/each}}
-    </div>
-  </div>
-    <div>
-    <h1>Ginebras</h1>
-    <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
-      {{#each ginebra}}
-      {{> productos this}}
-      {{/each}}
-    </div>
-  </div>
-    <div>
-    <h1>Mezcladores</h1>
-    <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
-      {{#each mezclador}}
-      {{> productos this}}
-      {{/each}}
-    </div>
-  </div>
-    <div>
-    <h1>Jugos</h1>
-    <div class="uk-child-width-1-5 uk-margin-medium-top uk-grid-match" uk-grid>
-      {{#each jugos}}
-      {{> productos this}}
-      {{/each}}
-    </div>
-  </div>
-</div>
+</main>

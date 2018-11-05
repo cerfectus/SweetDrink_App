@@ -381,6 +381,191 @@ const jugos = [
     price: 40.00
   }
 ];
+const Botana = [
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/97.jpg",
+    name : "Burrito",
+    type: "Botana",
+    Qty: "2 pzas",
+    price: 48.00
+  },
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/115.jpg",
+    name : "Golden Nuts Enchilados",
+    type: "Botana",
+    Qty: "300g",
+    price: 40.00
+  },
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/113.jpg",
+    name : "Golden Nuts Japoneses",
+    type: "Botana",
+    Qty: "250g",
+    price: 40.00
+  },
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/114.jpg",
+    name : "Jugo de Piña",
+    type: "Botana",
+    Qty: "250g",
+    price: 40.00
+  },
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/96.jpg",
+    name : "Palomitas ACTII",
+    type: "Botana",
+    Qty: "1 pza",
+    price: 25.00
+  }
+];
+const cigarros = [
+  {
+    image: "https://www.villagem.com/image/cache/data/items/2820000357-800x800.jpg",
+    name : "Marlboro rojos",
+    type: "Cigarros",
+    Qty: "20 pzas",
+    price: 77.00
+  },
+  {
+    image: "https://www.sfroomservices.com/wp-content/uploads/2017/12/original-1549.jpeg",
+    name : "Marlboro blancos",
+    type: "Cigarros",
+    Qty: "20 pzas",
+    price: 77.00
+  },
+  {
+    image: "http://www.cellshop.com/v2/744487-large_default/cigarrillos-marlboro-ice-blast--20-unidades-.jpg",
+    name : "Marlboro ICE",
+    type: "Cigarros",
+    Qty: "20 pzas",
+    price: 77.00
+  },
+  {
+    image: "https://jumbocolombiafood.vteximg.com.br/arquivos/ids/226235-1000-1000/7702303004619-1.jpg?v=636307122639470000",
+    name : "Lucky Strike",
+    type: "Cigarros",
+    Qty: "20 pzas",
+    price: 77.00
+  },
+  {
+    image: "http://cervezadomicilio.com/77-large_default/cigarros-camel-20s.jpg",
+    name : "Camel",
+    type: "Cigarros",
+    Qty: "20 pzas",
+    price: 77.00
+  }
+];
+const farmacia = [
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/134.jpg",
+    name : "Alka-Seltzer",
+    type: "Farmacia",
+    Qty: "12 pzas",
+    price: 80.00
+  },
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/133.jpg",
+    name : "Aspirina",
+    type: "Farmacia",
+    Qty: "40 pzas",
+    price: 90.00
+  },
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/137.jpg",
+    name : "Condones Playboy",
+    type: "Farmacia",
+    Qty: "3 pack",
+    price: 100.00
+  },
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/135.jpg",
+    name : "Pepto-Bismol",
+    type: "Farmacia",
+    Qty: "24 pzas",
+    price: 120.00
+  },
+  {
+    image: "https://super.walmart.com.mx/images/product-images/img_large/00750221498357L.jpg",
+    name : "Prudence caribbean",
+    type: "Farmacia",
+    Qty: "5 pack",
+    price: 120.00
+  }
+];
+const juegos = [
+  {
+    image: "https://media.takealot.com/covers_tsins/49931529/49931529-1-zoom.jpg",
+    name : "BEER PONG",
+    type: "Juegos y más",
+    Qty: "18 VASOS 18 PELOTAS",
+    price: 80.00
+  },
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/193.jpg",
+    name : "Ramo de Rosas",
+    type: "Juegos y más",
+    Qty: "",
+    price: 490.00
+  },
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/192.jpg",
+    name : "Peluche",
+    type: "Juegos y más",
+    Qty: "30 cm",
+    price: 380.00
+  },
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/602.jpg",
+    name : "Ferrero Rocher",
+    type: "Juegos y más",
+    Qty: "8 pzas",
+    price: 135.00
+  },
+  {
+    image: "https://p.globalsources.com/IMAGES/PDT/BIG/809/B1146830809.jpg",
+    name : "Dados amorosos",
+    type: "Juegos y más",
+    Qty: "2 pzas",
+    price: 70.00
+  }
+];
+const servicio = [
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/153.jpg",
+    name : "Hielo",
+    type: "Servicios",
+    Qty: "5kg",
+    price: 45.00
+  },
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/151.jpg",
+    name : "Platos",
+    type: "Servicios",
+    Qty: "25 pzas",
+    price: 45.00
+  },
+  {
+    image: "https://sistema.vampiritos.com/pos/img/productos/152.jpg",
+    name : "Vasos",
+    type: "Servicios",
+    Qty: "20 pzas",
+    price: 45.00
+  },
+  {
+    image: "http://industrialbaena.com/500-large_default/encendedor-piedra.jpg",
+    name : "Encendedor",
+    type: "Servicios",
+    Qty: "1 pza",
+    price: 20.00
+  },
+  {
+    image: "http://www.suministrosjjm.com/wp-content/uploads/2016/05/bolsas_plastica_negras.jpg",
+    name : "Bolsa de basura",
+    type: "Servicios",
+    Qty: "1 pza",
+    price: 10.00
+  }
+];
 /*Producto.create(cervezas, (err) => {
   if (err) throw(err)
   console.log(`Created ${cervezas.length} cervezas`)
@@ -441,3 +626,33 @@ Producto.create(jugos, (err) => {
   // cerrar conexion a la BD
   mongoose.connection.close()
 })*/
+Producto.create(Botana, (err) => {
+  if (err) throw(err)
+  console.log(`Created ${Botana.length} Botanas`)
+  // cerrar conexion a la BD
+  mongoose.connection.close()
+})
+Producto.create(cigarros, (err) => {
+  if (err) throw(err)
+  console.log(`Created ${cigarros.length} Cigarros`)
+  // cerrar conexion a la BD
+  mongoose.connection.close()
+})
+Producto.create(farmacia, (err) => {
+  if (err) throw(err)
+  console.log(`Created ${farmacia.length} Farmacia`)
+  // cerrar conexion a la BD
+  mongoose.connection.close()
+})
+Producto.create(juegos, (err) => {
+  if (err) throw(err)
+  console.log(`Created ${juegos.length} Juegos`)
+  // cerrar conexion a la BD
+  mongoose.connection.close()
+})
+Producto.create(servicio, (err) => {
+  if (err) throw(err)
+  console.log(`Created ${servicio.length} Servicios`)
+  // cerrar conexion a la BD
+  mongoose.connection.close()
+})
