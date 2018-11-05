@@ -1,12 +1,21 @@
 const express = require('express');
 const router  = express.Router();
+const User = require("../models/User");
 
 router.get("/aboutUs", (req, res)=>{
-  res.render("aboutUs");
+  const {user} = req;
+  User.find()
+  .then(()=>{
+    res.render("aboutUs", {user});
+  })
 });
 
 router.get("/contact", (req, res)=>{
-  res.render("contact");
+  const {user} = req;
+  User.find()
+  .then(()=>{
+    res.render("contact", {user});
+  })
 });
 
 module.exports = router;

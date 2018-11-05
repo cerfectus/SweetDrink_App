@@ -16,10 +16,14 @@
   <link rel="stylesheet" href="/stylesheets/stylesAU.css" />
   <link rel="stylesheet" href="/stylesheets/stylesP.css" />
   <link rel="stylesheet" href="/stylesheets/stylesMenu.css" />
+  <link rel="stylesheet" href="/stylesheets/stylesCar.css" />
 </head>
 <body>
+  {{#if user}}
+  {{> navU}}
+  {{else}}
   {{> nav}}
-
+  {{/if}}
   {{{body}}}
   
   {{> footer}}
