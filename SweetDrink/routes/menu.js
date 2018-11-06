@@ -67,7 +67,6 @@ router.get("/carrito", commonMiddlewares.isLoggedIn, (req,res)=>{
   .then(()=>{
     Producto.find({type: "Servicios"})
   .then(servicio=>{
-    console.log(servicio)
     res.render("carrito", {servicio, user})
   });
   });

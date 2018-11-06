@@ -25,7 +25,7 @@ body {
   margin: 0%;
 }
 .dropbtn {
-  background-color: #4CAF50;
+  background-color: inherit;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -34,7 +34,7 @@ body {
 }
 
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #3e8e41;
+  background-color: #4a4a4a;
 }
 
 .dropdown {

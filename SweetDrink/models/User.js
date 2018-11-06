@@ -27,7 +27,7 @@ const userSchema = new Schema({
     default: "Confirmación pendiente"
   },
     photo: {type: String, 
-    default: "http://warp.la/wp-content/uploads/2016/03/Fiesta.jpg"
+    default: "https://cdn.icon-icons.com/icons2/827/PNG/512/user_icon-icons.com_66546.pngs"
   }},
   {
     timestamps: {

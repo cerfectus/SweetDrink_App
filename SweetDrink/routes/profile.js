@@ -28,14 +28,23 @@ router.get("/account/:id/edit",commonMiddlewares.isLoggedIn, (req,res)=>{
   })
 });
 
-router.post("/account/:id/edit",commonMiddlewares.isLoggedIn, (req,res)=>{
-  User.findByIdAndUpdate(req.params.id, { $set: req.body }, {new: true})
-  .then( () =>{
+router.post("/account/:id/edit",commonMiddlewares.isLoggedIn, upload.single("photo"), (req,res)=>{
+  req.body.photo = req.file.url;
+  User.findByIdAndUpdate(req.params.id, { $set: req.body}, {new: true})
+  .then(()=>{
+    console.log(req.body.photo)
     res.redirect("/profile/account");
   })
   .catch(err=>{
     res.render("e_account", {err, msg: "Ocurrió un error al actualizar"});
   })
+});
+
+router.post("/account/:id/delete", commonMiddlewares.isLoggedIn, (req, res)=>{
+  User.findOneAndDelete(req.params._id)
+  .then(()=>{
+    res.redirect("/")
+  });
 });
 
 module.exports = router;

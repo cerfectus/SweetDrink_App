@@ -3,14 +3,13 @@
         <div class="per">
             <div class="uk-card uk-card-default">
                 <div class="uk-card-media-top">
-                    <img src="{{user.photo}}" alt="">
+                    <img class="userP" src="{{user.photo}}" alt="">
                 </div>
                 <div class="uk-card-body">
                     <h3 class="uk-card-title"> <i class="fas fa-user"></i> {{user.name}}</h3>
                     <p><i class="fas fa-power-off"></i> Status: {{user.status}}</p>
                     <p> <i class="fas fa-envelope"></i> Correo: {{user.email}}</p>
                     <p> <i class="fas fa-mobile"></i> Teléfono cel: {{user.phone}}</p>
-                    <form action="/auth/logout" method="post"><button type="submit">Cerrar sesión</button></form>
                 </div>
                 <form class="e-form" action="/profile/account/{{user._id}}/edit" method="GET">
                     <button type="submit" class=" edit uk-button uk-button-primary">Editar perfil <i class="fas fa-cog fa-spin"></i></button>

@@ -19,15 +19,13 @@
   <link rel="stylesheet" href="/stylesheets/stylesCar.css" />
 </head>
 <body>
-  {{#if user}}
-  {{> navU}}
-  {{else}}
   {{> nav}}
-  {{/if}}
+
   {{{body}}}
   
   {{> footer}}
   <script src="/javascripts/script.js"></script>
+   <script src="/javascripts/modal.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQrAhyLjzEtjJAOIPygatE1F01o1U6x14&libraries=places"
           async defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.20/js/uikit.min.js"></script>

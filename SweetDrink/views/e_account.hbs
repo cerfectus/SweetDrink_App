@@ -16,7 +16,7 @@
     <form class="form" action="/profile/account/{{user._id}}/edit" method="POST" enctype="multipart/form-data">
 
       <div class="js-upload" uk-form-custom>
-        <input type="file" name="photos">
+        <input type="file" name="photo">
         <span class="uk-form-icon" uk-icon="icon: image"></span>
         <button class="uk-button uk-button-default" type="button" tabindex="-1">&nbsp;&nbsp;&nbsp;Selecciona una foto</button>
       </div>
@@ -55,14 +55,25 @@
         <button type="submit" class="uk-button uk-button-primary"><i class="fas fa-user"></i> Actualizar perfil</button>
       </p>
 
-      <form action="/profile/account" method="GET">
-        <p class="uk-margin">
-          <button type="submit" class="uk-button uk-button-secondary"><i class="fas fa-angle-left"></i> Regresar</button>
-
-        </p>
-      </form>
-
     </form>
 
+    <button id="Borrar" class="uk-button uk-button-danger"><i class="fas fa-trash-alt"></i> Eliminar cuenta</button>
+    <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2 class="mod"><i class="fas fa-sad-cry fa-2x"></i> Seguro que deseas ELIMINAR tu cuenta!</h2>
+    </div>
+    <div class="modal-body">
+      <p class="inf">Si eliminas tu cuenta todos tus datos se perderan de forma permanente.</p>
+      <form action="/profile/account/{{user._id}}/delete" method="POST">
+      <button type="submit" id="myBtn" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fas fa-user-minus"></i> Eliminar de todas formas</button>
+      </form>
+    </div>
   </div>
+
+</div>
 </main>
