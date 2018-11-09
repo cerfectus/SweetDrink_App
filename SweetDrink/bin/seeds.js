@@ -16,7 +16,7 @@ const cervezas = [
   },
   {
     image: "https://sistema.vampiritos.com/pos/img/productos/53.jpg",
-    name : "Modelo epecial",
+    name : "Modelo especial",
     type: "cerveza",
     Qty: "6 pack",
     price: 125.00

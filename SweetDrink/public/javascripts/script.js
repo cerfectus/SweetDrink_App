@@ -53,3 +53,8 @@ if (!event.target.matches('.dropbtn')) {
   }
 }
 }
+function handle_form_submission()
+{
+  alert('se ha enviado exitosamente');
+  return false; //do not submit the form
+}
